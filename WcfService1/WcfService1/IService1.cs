@@ -14,16 +14,13 @@ namespace WcfService1
     {
 
         [OperationContract]
-        string GetData(int value);
-
-        [OperationContract]
         CSiatkarz GetSiatkarz (int id);
 
         [OperationContract]
-        CKLub GetKLub (string nazwa);
+        CKlub GetKlub (string nazwa);
 
         [OperationContract]
-        CHala Gethala (string nazwah);
+        CHala GetHala (string nazwah);
 
         // TODO: dodaj tutaj operacje usługi
     }
@@ -50,7 +47,7 @@ namespace WcfService1
     }
 
     [DataContract]
-    public class CKLub
+    public class CKlub
     {
         [DataMember]
         public string nazwa { get; set; }
