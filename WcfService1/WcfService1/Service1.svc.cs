@@ -90,27 +90,58 @@ namespace WcfService1
 
         }
 
-       public CSiatkarz AddSiatkarz (int value)
+        public CSiatkarz AddSiatkarz(int id, string imie, string nazwisko, int wiek, int wzrost, string pozycja, string klub)
         {
-            /*var Siatkarz = new SEntities();
-            Siatkarze nowy_s = new Siatkarze()
+            using (var context = new SEntities())
             {
-                Id = value,
-                Imie = 
+                var nowy_s = new Siatkarze()
+                {
+                    Id = id,
+                    Imie = imie,
+                    Nazwisko = nazwisko,
+                    Wiek = wiek,
+                    Wzrost = wzrost,
+                    Pozycja = pozycja,
+                    Klub = klub
+                };
+            context.Siatkarze.Add(nowy_s);
+            context.SaveChanges();
+                return null;
+             }
+        }
+
+        public CKlub AddKlub(string nazwa, int rok_zalozenia, string trener, string hala, string maskotka)
+        {
+            using (var context = new SEntities())
+            {
+                var nowy_k = new Klub()
+                {
+                    Nazwa = nazwa,
+                    Rok_zalozenia = rok_zalozenia,
+                    Trener = trener,
+                    Hala = hala,
+                    Maskotka = maskotka
+                };
+                context.Klub.Add(nowy_k);
+                context.SaveChanges();
+                return null;
             }
-            Siatkarz.Siatkarze.Add(nowy_s);
-            Siatkarz.SaveChanges();*/
-            throw new NotImplementedException();
         }
 
-        public CKlub AddKlub()
+        public CHala AddHala(string nazwah, string miasto, int liczba_miejsc)
         {
-            throw new NotImplementedException();
-        }
-
-        public CHala AddHala()
-        {
-            throw new NotImplementedException();
+            using (var context = new SEntities())
+            {
+                var nowy_h = new Hala()
+                {
+                    Nazwa = nazwah,
+                    Miasto = miasto,
+                    Liczba_miejsc = liczba_miejsc
+                };
+                context.Hala.Add(nowy_h);
+                context.SaveChanges();
+                return null;
+            }
         }
 
         public CSiatkarz DeleteSiatkarz(int id)

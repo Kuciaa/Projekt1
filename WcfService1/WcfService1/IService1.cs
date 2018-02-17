@@ -23,13 +23,13 @@ namespace WcfService1
         CHala GetHala (string nazwah);
 
         [OperationContract]
-        CSiatkarz AddSiatkarz(int value);
+        CSiatkarz AddSiatkarz(int id, string imie, string nazwisko, int wiek, int wzrost, string pozycja, string klub);
 
         [OperationContract]
-        CKlub AddKlub();
+        CKlub AddKlub(string nazwa, int rok_zalozenia, string trener, string hala, string maskotka);
 
         [OperationContract]
-        CHala AddHala();
+        CHala AddHala(string nazwah, string miasto, int liczba_miejsc);
 
         [OperationContract]
         CSiatkarz DeleteSiatkarz (int id);
