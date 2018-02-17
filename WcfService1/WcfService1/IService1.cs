@@ -17,7 +17,13 @@ namespace WcfService1
         string GetData(int value);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        CSiatkarz GetSiatkarz (int id);
+
+        [OperationContract]
+        CKLub GetKLub (string nazwa);
+
+        [OperationContract]
+        CHala Gethala (string nazwah);
 
         // TODO: dodaj tutaj operacje usługi
     }
@@ -25,23 +31,48 @@ namespace WcfService1
 
     // Użyj kontraktu danych, jak pokazano w poniższym przykładzie, aby dodać typy złożone do operacji usługi.
     [DataContract]
-    public class CompositeType
+    public class CSiatkarz
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
         [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
+        public int id { get; set; }
         [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        public string imie { get; set; }
+        [DataMember]
+        public string nazwisko { get; set; }
+        [DataMember]
+        public int wiek { get; set; }
+        [DataMember]
+        public int wzrost { get; set; }
+        [DataMember]
+        public string pozycja { get; set; }
+        [DataMember]
+        public string klub { get; set; }
     }
+
+    [DataContract]
+    public class CKLub
+    {
+        [DataMember]
+        public string nazwa { get; set; }
+        [DataMember]
+        public int rok_zalozenia { get; set; }
+        [DataMember]
+        public string trener { get; set; }
+        [DataMember]
+        public string hala { get; set; }
+        [DataMember]
+        public string maskotka { get; set; }
+    }
+
+    [DataContract]
+    public class CHala
+    {
+        [DataMember]
+        public string nazwah { get; set; }
+        [DataMember]
+        public string miasto { get; set; }
+        [DataMember]
+        public int liczba_miejsc { get; set; }
+    }
+
 }

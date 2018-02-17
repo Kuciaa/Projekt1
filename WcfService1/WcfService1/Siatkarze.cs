@@ -14,6 +14,7 @@ namespace WcfService1
     
     public partial class Siatkarze
     {
+        public int Id { get; set; }
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
         public Nullable<int> Wiek { get; set; }

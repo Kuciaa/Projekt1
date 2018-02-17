@@ -13,10 +13,10 @@ namespace WcfService1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class SEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public SEntities()
+            : base("name=SEntities")
         {
         }
     

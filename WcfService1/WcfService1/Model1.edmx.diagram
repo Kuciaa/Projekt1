@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1e9d0143773d49c798e0a0150b042aad" Name="Diagram1">
-        <EntityTypeShape EntityType="masterModel.Hala" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+      <Diagram DiagramId="932c2e376842496c8d6192c781f1c51d" Name="Diagram1">
+        <EntityTypeShape EntityType="masterModel.Hala" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="masterModel.Klub" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="masterModel.Siatkarze" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="masterModel.FK_Klub_Hala" ManuallyRouted="false" />
-        <AssociationConnector Association="masterModel.FK_Siatkarze_Klub" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_Siatkarze_Siatkarze" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

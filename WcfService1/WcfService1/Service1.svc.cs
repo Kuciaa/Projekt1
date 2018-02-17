@@ -17,17 +17,34 @@ namespace WcfService1
             return string.Format("You entered: {0}", value);
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public CHala Gethala(CHala nazwah)
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            throw new NotImplementedException();
+        }
+
+        public CKLub GetKLub(CKLub nazwa)
+        {
+            throw new NotImplementedException();
+        }
+
+        public CSiatkarz GetSiatkarz(int id)
+        {
+                SEntities context = new SEntities();
+                var Siatkarze = (from p
+                                     in context.Siatkarze
+                                     where p.Id == id
+                                     select p).FirstOrDefault();
+                if (Siatkarze != null)
+                    return TranslateSiatkarzeToCSiatkarz(Siatkarze);
+                else
+                    throw new Exception("Invalid product id");
+        }
+        private CSiatkarz TranslateSiatkarzeToCSiatkarz(Siatkarze Siatkarze)
+        {
+                CSiatkarz siatkarz = new CSiatkarz();
+                siatkarz.id = Siatkarze.Id;
+                return siatkarz;
+
         }
     }
 }
