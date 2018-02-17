@@ -22,8 +22,35 @@ namespace WcfService1
         [OperationContract]
         CHala GetHala (string nazwah);
 
-        //[OperationContract]
-        //List<CSiatkarz> GetSiat();
+        [OperationContract]
+        CSiatkarz AddSiatkarz(int value);
+
+        [OperationContract]
+        CKlub AddKlub();
+
+        [OperationContract]
+        CHala AddHala();
+
+        [OperationContract]
+        CSiatkarz DeleteSiatkarz (int id);
+
+        [OperationContract]
+        CKlub DeleteKlub (string nazwa);
+
+        [OperationContract]
+        CHala DeleteHala (string nazwah);
+
+        [OperationContract]
+        CSiatkarz EditSiatkarz (int id);
+
+        [OperationContract]
+        CKlub EditKlub (string nazwa);
+
+        [OperationContract]
+        CHala EditHala (string nazwa);
+
+
+       
 
         // TODO: dodaj tutaj operacje usługi
     }

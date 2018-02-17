@@ -24,9 +24,7 @@ namespace WcfService1
             else
             {
                 return null;
-                throw new Exception("Błędne id");
             }
-                
         }
 
         private CSiatkarz TranslateSiatkarzeToCSiatkarz(Siatkarze Siatkarze)
@@ -43,16 +41,18 @@ namespace WcfService1
 
         }
 
-        public CKlub GetKlub (string nazwa)
+        public CKlub GetKlub(string nazwa)
         {
             SEntities context = new SEntities();
             var Klub = (from p in context.Klub
-                             where p.Nazwa == nazwa
-                             select p).FirstOrDefault();
+                        where p.Nazwa == nazwa
+                        select p).FirstOrDefault();
             if (Klub != null)
                 return TranslateKlubToCKlub(Klub);
             else
-                throw new Exception("Błędna nazwa klubu");
+            {
+                return null;
+            }
         }
         private CKlub TranslateKlubToCKlub(Klub kluby)
         {
@@ -75,8 +75,11 @@ namespace WcfService1
             if (Hala != null)
                 return TranslateHalaToCHala(Hala);
             else
-                throw new Exception("Błędna nazwa hali");
+            {
+                return null;
+            }
         }
+
         private CHala TranslateHalaToCHala(Hala hale)
         {
             CHala hala = new CHala();
@@ -87,23 +90,105 @@ namespace WcfService1
 
         }
 
-        /*public List<CSiatkarz> GetSiat()
+       public CSiatkarz AddSiatkarz (int value)
         {
-            using (SEntities Context = new SEntities())
+            /*var Siatkarz = new SEntities();
+            Siatkarze nowy_s = new Siatkarze()
             {
-                var query = from cust in Context.Siatkarze.OfType<CSiatkarz>()
-                            orderby cust.imie, cust.nazwisko
-                            select new CSiatkarz
-                            {
-                                imie = cust.imie,
-                                nazwisko = cust.nazwisko
-                            };
-                return query.ToList();
+                Id = value,
+                Imie = 
+            }
+            Siatkarz.Siatkarze.Add(nowy_s);
+            Siatkarz.SaveChanges();*/
+            throw new NotImplementedException();
+        }
+
+        public CKlub AddKlub()
+        {
+            throw new NotImplementedException();
+        }
+
+        public CHala AddHala()
+        {
+            throw new NotImplementedException();
+        }
+
+        public CSiatkarz DeleteSiatkarz(int id)
+        {
+            SEntities context = new SEntities();
+            var Siatkarz = (from p in context.Siatkarze
+                        where p.Id == id
+                        select p).FirstOrDefault();
+            if (Siatkarz != null)
+            {
+
+                context.Siatkarze.Remove(Siatkarz);
+                context.SaveChanges();
+                return null;
+            }
+            else
+            {
+                return null;
             }
         }
-        */
+
+        public CKlub DeleteKlub(string nazwa)
+        {
+            SEntities context = new SEntities();
+            var Klub = (from p in context.Klub
+                        where p.Nazwa == nazwa
+                        select p).FirstOrDefault();
+            if (Klub != null)
+            { 
+                
+                context.Klub.Remove(Klub);
+                context.SaveChanges();
+                return null;
+            }
+            else
+            {
+                return null; 
+            }
+        }
+
+        public CHala DeleteHala(string nazwah)
+        {
+            SEntities context = new SEntities();
+            var Hala = (from p in context.Hala
+                        where p.Nazwa == nazwah
+                        select p).FirstOrDefault();
+            if ( Hala != null)
+            {
+                context.Hala.Remove(Hala);
+                context.SaveChanges();
+                return null;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public CSiatkarz EditSiatkarz(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public CKlub EditKlub(string nazwa)
+        {
+            throw new NotImplementedException();
+        }
+
+        public CHala EditHala(string nazwa)
+        {
+            throw new NotImplementedException();
+        }
+
 
     }
-
-
 }
+
+    
+
+
+
