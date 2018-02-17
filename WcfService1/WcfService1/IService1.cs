@@ -22,6 +22,9 @@ namespace WcfService1
         [OperationContract]
         CHala GetHala (string nazwah);
 
+        //[OperationContract]
+        //List<CSiatkarz> GetSiat();
+
         // TODO: dodaj tutaj operacje usługi
     }
 

@@ -22,8 +22,13 @@ namespace WcfService1
             if (Siatkarze != null)
                 return TranslateSiatkarzeToCSiatkarz(Siatkarze);
             else
+            {
+                return null;
                 throw new Exception("Błędne id");
+            }
+                
         }
+
         private CSiatkarz TranslateSiatkarzeToCSiatkarz(Siatkarze Siatkarze)
         {
             CSiatkarz siatkarz = new CSiatkarz();
@@ -82,5 +87,23 @@ namespace WcfService1
 
         }
 
+        /*public List<CSiatkarz> GetSiat()
+        {
+            using (SEntities Context = new SEntities())
+            {
+                var query = from cust in Context.Siatkarze.OfType<CSiatkarz>()
+                            orderby cust.imie, cust.nazwisko
+                            select new CSiatkarz
+                            {
+                                imie = cust.imie,
+                                nazwisko = cust.nazwisko
+                            };
+                return query.ToList();
+            }
+        }
+        */
+
     }
+
+
 }
