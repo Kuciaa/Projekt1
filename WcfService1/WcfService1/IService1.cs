@@ -32,7 +32,7 @@ namespace WcfService1
         CHala AddHala(string nazwah, string miasto, int liczba_miejsc);
 
         [OperationContract]
-        CSiatkarz DeleteSiatkarz (int id);
+        void DeleteSiatkarz (int id);
 
         [OperationContract]
         void EditSiatkarz (int id, int wiek, int wzrost, string pozycja, string klub);

@@ -106,8 +106,17 @@ namespace WcfService1
                 };
             context.Siatkarze.Add(nowy_s);
             context.SaveChanges();
-                return null;
-             }
+
+                CSiatkarz siatkarz = new CSiatkarz();
+                siatkarz.id = nowy_s.Id;
+                siatkarz.imie = nowy_s.Imie;
+                siatkarz.nazwisko = nowy_s.Nazwisko;
+                siatkarz.wiek = (int)nowy_s.Wiek;
+                siatkarz.wzrost = (int)nowy_s.Wzrost;
+                siatkarz.pozycja = nowy_s.Pozycja;
+                siatkarz.klub = nowy_s.Klub;
+                return siatkarz;
+            }
         }
 
         public CKlub AddKlub(string nazwa, int rok_zalozenia, string trener, string hala, string maskotka)
@@ -124,7 +133,14 @@ namespace WcfService1
                 };
                 context.Klub.Add(nowy_k);
                 context.SaveChanges();
-                return null;
+
+                CKlub klub = new CKlub();
+                klub.nazwa = nowy_k.Nazwa;
+                klub.rok_zalozenia = (int)nowy_k.Rok_zalozenia;
+                klub.trener = nowy_k.Trener;
+                klub.hala = nowy_k.Hala;
+                klub.maskotka = nowy_k.Maskotka;
+                return klub;
             }
         }
 
@@ -140,11 +156,16 @@ namespace WcfService1
                 };
                 context.Hala.Add(nowy_h);
                 context.SaveChanges();
-                return null;
+
+                CHala hala = new CHala();
+                hala.nazwah = nowy_h.Nazwa;
+                hala.miasto = nowy_h.Miasto;
+                hala.liczba_miejsc = (int)nowy_h.Liczba_miejsc;
+                return hala;
             }
         }
 
-        public CSiatkarz DeleteSiatkarz(int id)
+        public void DeleteSiatkarz(int id)
         {
             SEntities context = new SEntities();
             var Siatkarz = (from p in context.Siatkarze
@@ -155,11 +176,6 @@ namespace WcfService1
 
                 context.Siatkarze.Remove(Siatkarz);
                 context.SaveChanges();
-                return null;
-            }
-            else
-            {
-                return null;
             }
         }
 
