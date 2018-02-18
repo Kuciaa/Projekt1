@@ -14,53 +14,53 @@ namespace WcfService1
 
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
-        CSiatkarz GetSiatkarz (int id);
+          BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "slist")]
+        string GetSList();
 
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
-        CKlub GetKlub (string nazwa);
+          BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "klist")]
+        string GetKList();
 
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
-        CHala GetHala (string nazwah);
+           BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "hlist")]
+        string GetHList();
 
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
-        CSiatkarz AddSiatkarz(int id, string imie, string nazwisko, int wiek, int wzrost, string pozycja, string klub);
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "addsiatkarz?id={ids}&imie={imie}&nazwisko={nazwisko}&wiek={wieks}&wzrost={wzrosts}&pozycja={pozycja}&klub={klub}")]
+        string AddSiatkarz(string ids, string imie, string nazwisko, string wieks, string wzrosts, string pozycja, string klub);
+        
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "addklub?nazwa={nazwa}&rok_zalozenia={rok_zalozenias}&trener={trener}&hala={hala}&maskotka={maskotka}")]
+        string AddKlub(string nazwa, string rok_zalozenias, string trener, string hala, string maskotka);
 
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
-        CKlub AddKlub(string nazwa, int rok_zalozenia, string trener, string hala, string maskotka);
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "addhala?nazwah={nazwah}&miasto={miasto}&liczba_miejsc={liczba_miejscs}")]
+        string AddHala(string nazwah, string miasto, string liczba_miejscs);
 
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
-        CHala AddHala(string nazwah, string miasto, int liczba_miejsc);
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "editsiatkarz?id={ids}&wiek={wieks}&wzrost={wzrosts}&pozycja={pozycja}&klub={klub}")]
+        void EditSiatkarz(string ids, string wieks, string wzrosts, string pozycja, string klub);
 
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
-        void DeleteSiatkarz (int id);
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "editklub?nazwa={nazwa}&trener={trener}&hala={hala}&maskotka={maskotka}")]
+        void EditKlub(string nazwa, string trener, string hala, string maskotka);
 
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
-        void EditSiatkarz (int id, int wiek, int wzrost, string pozycja, string klub);
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "edithala?nazwah={nazwah}&liczba_miejsc={liczba_miejscs}")]
+        void EditHala(string nazwah, string liczba_miejscs);
 
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
-        void EditKlub (string nazwa, string trener, string hala, string maskotka);
-
-        [OperationContract]
-        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
-        void EditHala (string nazwah, int liczba_miejsc);
+           BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "deletesiatkarz/{f}")]
+        void DeleteSiatkarz(string f);
 
     }
 
