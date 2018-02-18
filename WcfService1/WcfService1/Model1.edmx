@@ -20,7 +20,7 @@
           <Property Name="Nazwa" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Rok_zalozenia" Type="int" />
           <Property Name="Trener" Type="varchar" MaxLength="50" />
-          <Property Name="Hala" Type="varchar" MaxLength="50" />
+          <Property Name="Hala" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Maskotka" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Siatkarze">
@@ -33,10 +33,10 @@
           <Property Name="Wiek" Type="int" />
           <Property Name="Wzrost" Type="int" />
           <Property Name="Pozycja" Type="varchar" MaxLength="50" />
-          <Property Name="Klub" Type="varchar" MaxLength="50" />
+          <Property Name="Klub" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_Klub_Hala">
-          <End Role="Hala" Type="Self.Hala" Multiplicity="0..1" />
+          <End Role="Hala" Type="Self.Hala" Multiplicity="1" />
           <End Role="Klub" Type="Self.Klub" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Hala">
@@ -47,8 +47,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Siatkarze_Siatkarze">
-          <End Role="Klub" Type="Self.Klub" Multiplicity="0..1" />
+        <Association Name="FK_Siatkarze_Klub">
+          <End Role="Klub" Type="Self.Klub" Multiplicity="1" />
           <End Role="Siatkarze" Type="Self.Siatkarze" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Klub">
@@ -67,7 +67,7 @@
             <End Role="Hala" EntitySet="Hala" />
             <End Role="Klub" EntitySet="Klub" />
           </AssociationSet>
-          <AssociationSet Name="FK_Siatkarze_Siatkarze" Association="Self.FK_Siatkarze_Siatkarze">
+          <AssociationSet Name="FK_Siatkarze_Klub" Association="Self.FK_Siatkarze_Klub">
             <End Role="Klub" EntitySet="Klub" />
             <End Role="Siatkarze" EntitySet="Siatkarze" />
           </AssociationSet>
@@ -93,10 +93,10 @@
           <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Rok_zalozenia" Type="Int32" />
           <Property Name="Trener" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Hala" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Hala" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Maskotka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Hala1" Relationship="Self.FK_Klub_Hala" FromRole="Klub" ToRole="Hala" />
-          <NavigationProperty Name="Siatkarze" Relationship="Self.FK_Siatkarze_Siatkarze" FromRole="Klub" ToRole="Siatkarze" />
+          <NavigationProperty Name="Siatkarze" Relationship="Self.FK_Siatkarze_Klub" FromRole="Klub" ToRole="Siatkarze" />
         </EntityType>
         <EntityType Name="Siatkarze">
           <Key>
@@ -108,11 +108,11 @@
           <Property Name="Wiek" Type="Int32" />
           <Property Name="Wzrost" Type="Int32" />
           <Property Name="Pozycja" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Klub" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Klub1" Relationship="Self.FK_Siatkarze_Siatkarze" FromRole="Siatkarze" ToRole="Klub" />
+          <Property Name="Klub" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Klub1" Relationship="Self.FK_Siatkarze_Klub" FromRole="Siatkarze" ToRole="Klub" />
         </EntityType>
         <Association Name="FK_Klub_Hala">
-          <End Role="Hala" Type="Self.Hala" Multiplicity="0..1" />
+          <End Role="Hala" Type="Self.Hala" Multiplicity="1" />
           <End Role="Klub" Type="Self.Klub" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Hala">
@@ -123,8 +123,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Siatkarze_Siatkarze">
-          <End Role="Klub" Type="Self.Klub" Multiplicity="0..1" />
+        <Association Name="FK_Siatkarze_Klub">
+          <End Role="Klub" Type="Self.Klub" Multiplicity="1" />
           <End Role="Siatkarze" Type="Self.Siatkarze" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Klub">
@@ -143,7 +143,7 @@
             <End Role="Hala" EntitySet="Hala" />
             <End Role="Klub" EntitySet="Klub" />
           </AssociationSet>
-          <AssociationSet Name="FK_Siatkarze_Siatkarze" Association="Self.FK_Siatkarze_Siatkarze">
+          <AssociationSet Name="FK_Siatkarze_Klub" Association="Self.FK_Siatkarze_Klub">
             <End Role="Klub" EntitySet="Klub" />
             <End Role="Siatkarze" EntitySet="Siatkarze" />
           </AssociationSet>

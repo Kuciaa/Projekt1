@@ -163,56 +163,87 @@ namespace WcfService1
             }
         }
 
-        public CKlub DeleteKlub(string nazwa)
+        public void EditSiatkarz(int id, int wiek, int wzrost, string pozycja, string klub)
+        {
+            SEntities context = new SEntities();
+            var Siatkarze = (from p
+                                 in context.Siatkarze
+                             where p.Id == id
+                             select p).FirstOrDefault();
+            if (Siatkarze != null)
+            {
+                if (wiek == 0)
+                {
+                    Siatkarze.Wiek = Siatkarze.Wiek;
+                }
+                else Siatkarze.Wiek = wiek;
+
+                if (wzrost == 0)
+                {
+                    Siatkarze.Wzrost = Siatkarze.Wzrost;
+                }
+                else Siatkarze.Wzrost = wzrost;
+
+                if (pozycja == null) 
+                {
+                    Siatkarze.Pozycja = Siatkarze.Pozycja;
+                }
+                else Siatkarze.Pozycja = pozycja;
+
+                if (klub == null)
+                {
+                    Siatkarze.Klub = Siatkarze.Klub;
+                }
+                else Siatkarze.Klub = klub;
+            }
+            context.SaveChanges();
+        }
+
+        public void EditKlub(string nazwa, string trener, string hala, string maskotka)
         {
             SEntities context = new SEntities();
             var Klub = (from p in context.Klub
                         where p.Nazwa == nazwa
                         select p).FirstOrDefault();
             if (Klub != null)
-            { 
-                
-                context.Klub.Remove(Klub);
-                context.SaveChanges();
-                return null;
-            }
-            else
             {
-                return null; 
+                if (trener == null)
+                {
+                    Klub.Trener = Klub.Trener;
+                }
+                else Klub.Trener = trener;
+
+                if (hala == null)
+                {
+                    Klub.Hala = Klub.Hala;
+                }
+                else Klub.Hala = hala;
+
+                if (maskotka == null)
+                {
+                    Klub.Maskotka = Klub.Maskotka;
+                }
+                else Klub.Maskotka = maskotka;
             }
+            context.SaveChanges();
+ 
         }
 
-        public CHala DeleteHala(string nazwah)
+        public void EditHala(string nazwah, int liczba_miejsc)
         {
             SEntities context = new SEntities();
             var Hala = (from p in context.Hala
                         where p.Nazwa == nazwah
                         select p).FirstOrDefault();
-            if ( Hala != null)
+            if (Hala != null)
             {
-                context.Hala.Remove(Hala);
-                context.SaveChanges();
-                return null;
+                if (liczba_miejsc == 0)
+                {
+                    Hala.Liczba_miejsc = Hala.Liczba_miejsc;
+                }
+                else Hala.Liczba_miejsc = liczba_miejsc;
             }
-            else
-            {
-                return null;
-            }
-        }
-
-        public CSiatkarz EditSiatkarz(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public CKlub EditKlub(string nazwa)
-        {
-            throw new NotImplementedException();
-        }
-
-        public CHala EditHala(string nazwa)
-        {
-            throw new NotImplementedException();
+            context.SaveChanges();
         }
 
 

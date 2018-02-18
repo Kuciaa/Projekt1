@@ -35,19 +35,13 @@ namespace WcfService1
         CSiatkarz DeleteSiatkarz (int id);
 
         [OperationContract]
-        CKlub DeleteKlub (string nazwa);
+        void EditSiatkarz (int id, int wiek, int wzrost, string pozycja, string klub);
 
         [OperationContract]
-        CHala DeleteHala (string nazwah);
+        void EditKlub (string nazwa, string trener, string hala, string maskotka);
 
         [OperationContract]
-        CSiatkarz EditSiatkarz (int id);
-
-        [OperationContract]
-        CKlub EditKlub (string nazwa);
-
-        [OperationContract]
-        CHala EditHala (string nazwa);
+        void EditHala (string nazwah, int liczba_miejsc);
 
 
        
