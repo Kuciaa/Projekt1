@@ -8,45 +8,60 @@ using System.Text;
 
 namespace WcfService1
 {
-    // UWAGA: możesz użyć polecenia „Zmień nazwę” w menu „Refaktoryzuj”, aby zmienić nazwę interfejsu „IService1” w kodzie i pliku konfiguracji.
     [ServiceContract]
     public interface IService1
     {
 
         [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
         CSiatkarz GetSiatkarz (int id);
 
         [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
         CKlub GetKlub (string nazwa);
 
         [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
         CHala GetHala (string nazwah);
 
         [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
         CSiatkarz AddSiatkarz(int id, string imie, string nazwisko, int wiek, int wzrost, string pozycja, string klub);
 
         [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
         CKlub AddKlub(string nazwa, int rok_zalozenia, string trener, string hala, string maskotka);
 
         [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
         CHala AddHala(string nazwah, string miasto, int liczba_miejsc);
 
         [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
         void DeleteSiatkarz (int id);
 
         [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
         void EditSiatkarz (int id, int wiek, int wzrost, string pozycja, string klub);
 
         [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
         void EditKlub (string nazwa, string trener, string hala, string maskotka);
 
         [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
         void EditHala (string nazwah, int liczba_miejsc);
 
-
-       
-
-        // TODO: dodaj tutaj operacje usługi
     }
 
 
