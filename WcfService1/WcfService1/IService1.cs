@@ -26,7 +26,23 @@ namespace WcfService1
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "hlist")]
         string GetHList();
+        /*
+         [OperationContract]
+        //[WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+         //   BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{id}")]
+        CSiatkarz GetSiatkarz (int id);
 
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+          BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{nazwa}")]
+        string GetKlub (string nazwa);
+
+        [OperationContract]
+        //[WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+        //    BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "json/{nazwah}")]
+        CHala GetHala (string nazwah);
+
+        */
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "addsiatkarz?id={ids}&imie={imie}&nazwisko={nazwisko}&wiek={wieks}&wzrost={wzrosts}&pozycja={pozycja}&klub={klub}")]
