@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Siatkarze</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script src="siatkarze.js"></script>
+    <style>
+        body {
+            background-color: powderblue;
+        }
+
+        table#tabela {
+            width: 100%;
+            background-color: #f1f1c1;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="font-size:36px; text-align:center;"> Siatkarze </h1>
+    <p><a href="klub.html">Kluby siatkarskie</a></p>
+    <p><a href="hala.html">Hale sportowe</a></p>
+    <div>
+        <table id="tabela">
+            <tr>
+                <th>Id</th>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Wiek</th>
+                <th>Wzrost</th>
+                <th>Pozycja</th>
+                <th>Klub</th>
+            </tr>
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+            </tr>
+        </table>
+        <br />
+        Id: <input type="text" id="txtId">
+        <button onClick="deleteSiatkarz()" type="button">
+            Usuń Siatkarza
+        </button>
+        <br />
+        <br />
+        Id: <input type="text" id="Id">
+        Imie: <input type="text" imie="txtImie">
+        Nazwisko: <input type="text" nazwisko="txtNazwisko">
+        Wiek: <input type="text" wiek="txtWiek">
+        <br />
+        <br />
+        Wzrost: <input type="text" wzrost="txtWzrost">
+        Pozycja: <input type="text" pozycja="txtPozycja">
+        Klub: <input type="text" klub="txtKlub">
+        <button onClick="addSiatkarz()" type="button">
+            Dodaj Siatkarza
+        </button>
+    </div>
+</body>
+</html>

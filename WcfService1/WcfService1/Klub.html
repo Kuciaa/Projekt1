@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Kluby Siatkarskie</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script src="klub.js"></script>
+    <style>
+        body {
+            background-color: powderblue;
+        }
+
+        table#tabela1 {
+            width: 100%;
+            background-color: #f1f1c1;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="font-size:36px; text-align:center;"> Kluby siatkarskie</h1>
+    <p><a href="Siatkarze.html">Siatkarze</a></p>
+    <p><a href="Hala.html">Hale sportowe</a></p>
+    <div>
+        <table id="tabela1">
+            <tr>
+                <th>Nazwa</th>
+                <th>Rok założenia</th>
+                <th>Trener</th>
+                <th>Hala</th>
+                <th>Maskotka</th>
+            </tr>
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+            </tr>
+        </table>
+        <br />
+        Nazwa: <input type="text" nazwa="txtNazwa">
+        Rok założenia: <input type="text" rok="txtRok">
+        Trener: <input type="text" trener="txtTrener">
+        <br />
+        <br />
+        Hala: <input type="text" hala="txtHala">
+        Maskotka: <input type="text" maskotka="txtMaskotka">
+        <button onClick="addKlub()" type="button">
+            Dodaj Klub
+        </button>
+    </div>
+</body>
+</html>

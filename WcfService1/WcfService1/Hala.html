@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Hale sportowe</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js">
+    </script>
+    <script src="hala.js"></script>
+    <style>
+        body {
+            background-color: powderblue;
+        }
+
+        table#tabela2 {
+            width: 100%;
+            background-color: #f1f1c1;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="font-size:36px; text-align:center;"> Hale sportowe </h1>
+    <p><a href="siatkarze.html">Siatkarze</a></p>
+    <p><a href="klub.html">Kluby siatkarskie</a></p>
+    <div>
+        <table id="tabela2">
+            <tr>
+                <th>Nazwa</th>
+                <th>Miasto</th>
+                <th>Ilość miejsc</th>
+            </tr>
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+            </tr>
+        </table>
+        <br />
+        Nazwa: <input type="text" nazwah="txtNazwah">
+        Miasto: <input type="text" miasto="txtMiasto">
+        Liczba miejsc: <input type="text" miejsca="txtMiejsca">
+        <button onClick="addHala()" type="button">
+            Dodaj Hale
+        </button>
+    </div>
+</body>
+</html>
