@@ -46,17 +46,17 @@ namespace WcfService1
         [OperationContract]
         [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "addsiatkarz?id={ids}&imie={imie}&nazwisko={nazwisko}&wiek={wieks}&wzrost={wzrosts}&pozycja={pozycja}&klub={klub}")]
-        string AddSiatkarz(string ids, string imie, string nazwisko, string wieks, string wzrosts, string pozycja, string klub);
+        void AddSiatkarz(string ids, string imie, string nazwisko, string wieks, string wzrosts, string pozycja, string klub);
         
         [OperationContract]
         [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "addklub?nazwa={nazwa}&rok_zalozenia={rok_zalozenias}&trener={trener}&hala={hala}&maskotka={maskotka}")]
-        string AddKlub(string nazwa, string rok_zalozenias, string trener, string hala, string maskotka);
+        void AddKlub(string nazwa, string rok_zalozenias, string trener, string hala, string maskotka);
 
         [OperationContract]
         [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "addhala?nazwah={nazwah}&miasto={miasto}&liczba_miejsc={liczba_miejscs}")]
-        string AddHala(string nazwah, string miasto, string liczba_miejscs);
+        void AddHala(string nazwah, string miasto, string liczba_miejscs);
 
         [OperationContract]
         [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json,
@@ -74,7 +74,7 @@ namespace WcfService1
         void EditHala(string nazwah, string liczba_miejscs);
 
         [OperationContract]
-        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+        [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json,
            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "deletesiatkarz/{f}")]
         void DeleteSiatkarz(string f);
 

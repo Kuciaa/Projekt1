@@ -158,7 +158,7 @@ namespace WcfService1
 
         }
         */
-        public string AddSiatkarz(string ids, string imie, string nazwisko, string wieks, string wzrosts, string pozycja, string klub)
+        public void AddSiatkarz(string ids, string imie, string nazwisko, string wieks, string wzrosts, string pozycja, string klub)
         {
             int id = Int32.Parse(ids);
             int wiek = Int32.Parse(wieks);
@@ -177,20 +177,10 @@ namespace WcfService1
                 };
                 context.Siatkarze.Add(nowy_s);
                 context.SaveChanges();
-
-                CSiatkarz siatkarz = new CSiatkarz();
-                siatkarz.id = nowy_s.Id;
-                siatkarz.imie = nowy_s.Imie;
-                siatkarz.nazwisko = nowy_s.Nazwisko;
-                siatkarz.wiek = (int)nowy_s.Wiek;
-                siatkarz.wzrost = (int)nowy_s.Wzrost;
-                siatkarz.pozycja = nowy_s.Pozycja;
-                siatkarz.klub = nowy_s.Klub;
-                return siatkarz.id.ToString();
             }
         }
 
-        public string AddKlub(string nazwa, string rok_zalozenias, string trener, string hala, string maskotka)
+        public void AddKlub(string nazwa, string rok_zalozenias, string trener, string hala, string maskotka)
         {
             int rok_zalozenia = Int32.Parse(rok_zalozenias);
             using (var context = new SEntities())
@@ -206,17 +196,10 @@ namespace WcfService1
                 context.Klub.Add(nowy_k);
                 context.SaveChanges();
 
-                CKlub klub = new CKlub();
-                klub.nazwa = nowy_k.Nazwa;
-                klub.rok_zalozenia = (int)nowy_k.Rok_zalozenia;
-                klub.trener = nowy_k.Trener;
-                klub.hala = nowy_k.Hala;
-                klub.maskotka = nowy_k.Maskotka;
-                return klub.nazwa.ToString();
             }
         }
 
-        public string AddHala(string nazwah, string miasto, string liczba_miejscs)
+        public void AddHala(string nazwah, string miasto, string liczba_miejscs)
         {
             int liczba_miejsc = Int32.Parse(liczba_miejscs);
             using (var context = new SEntities())
@@ -230,11 +213,6 @@ namespace WcfService1
                 context.Hala.Add(nowy_h);
                 context.SaveChanges();
 
-                CHala hala = new CHala();
-                hala.nazwah = nowy_h.Nazwa;
-                hala.miasto = nowy_h.Miasto;
-                hala.liczba_miejsc = (int)nowy_h.Liczba_miejsc;
-                return hala.nazwah.ToString();
             }
         }
 
